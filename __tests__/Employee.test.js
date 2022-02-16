@@ -21,7 +21,7 @@ describe('Employee', () => {
     });
 
     // test employee has role of employee
-    test ('employe has role of employee', () => {
+    test ('employee has role of employee', () => {
         expect(employee.role).toBe('Employee')
     });
 });
