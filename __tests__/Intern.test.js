@@ -27,6 +27,6 @@ describe('Intern', () =>{
 
     // test intern has a school name
     test('intern has a school name', () => {
-        expect(intern).toEqual(expect.any(String));
+        expect(intern.school).toEqual(expect.any(String));
     });
 });
