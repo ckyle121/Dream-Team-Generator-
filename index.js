@@ -10,6 +10,9 @@ const Engineer = require('./lib/Engineer');
 const Intern = require('./lib/Intern');
 const Manager = require('./lib/Manager');
 
+// import generateHTML function 
+const generateHTML = require('./src/generateHTML');
+
 // create array to store user input
 const teamMembers = [];
 
@@ -77,7 +80,7 @@ function userInput() {
             .then(response => {
                 const manager = new Manager (answers.name, answers.id, answers.email, answers.role, response.office)
                 teamMembers.push(manager);
-                addAnotherMember();
+                addEmployee();
             })
         }
         else if (answers.role === 'Intern'){
@@ -97,7 +100,7 @@ function userInput() {
             ]).then(response => {
                 const intern = new Intern (answers.name, answers.id, answers.email, answers.role, response.school);
                 teamMembers.push(intern);
-                addAnotherMember();
+                addEmployee();
             })
         }
         else if (answers.role === 'Engineer'){
@@ -117,17 +120,18 @@ function userInput() {
             ]).then(response => {
                 const engineer = new Engineer(answers.name, answers.id, answers.email, answers.role, response.github);
                 teamMembers.push(engineer);
-                addAnotherMember();
+                addEmployee();
             })
         } 
         else {
             const employee = new Employee(answers.name, answers.id, answers.email, answers.role);
             teamMembers.push(employee);
+            addEmployee();
         } 
 
         // function to add Another Team Member or Generate Template 
 
-        function addAnotherMember(){
+        function addEmployee(){
             inquirer.prompt([
                 {
                     type: 'confirm',
@@ -140,7 +144,7 @@ function userInput() {
                     userInput(teamMembers);
                 }
                 else {
-                    // code to generate HTML template
+                    generateHTML(teamMembers);
                 }
             });
         };
