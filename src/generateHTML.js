@@ -80,3 +80,76 @@ const generateEmployee = function(employee){
     </div>
     `
 };
+
+// add cards together 
+const generateTeam = function(data){
+
+    // create array to hold employee cards
+    employeeCards = [];
+
+    // loop through response to assign each employee entered to a card
+    for (let i in data){
+        const employee = data[i];
+        const role = data.employee.role;
+
+        if (role === 'Manager'){
+            const managerCard = generateManager(employee);
+            employeeCards.push(managerCard);
+        }
+
+        if (role === 'Engineer'){
+            const engineerCard = generateEngineer(employee);
+            employeeCards.push(engineerCard);
+        }
+
+        if (role === 'Intern'){
+            const internCard = generateIntern(employee);
+            employeeCards.push(internCard);
+        }
+
+        if (role === 'Employee'){
+            const employeeCard = generateEmployee(employee);
+            employeeCards.push(employeeCard);
+        }
+    };
+
+    // join strings in array to one string
+    const teamMembers = employeeCards.join('');
+
+    // add team members div to HTML page
+    const generateTeamHTML = generateHTML(teamMembers);
+
+    return generateTeamHTML;
+};
+
+// create html page
+const generateHTML = function (teamMembers){
+    return `
+    <!DOCTYPE html>
+    <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta http-equiv="X-UA-Compatible" content="IE=edge">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>Dream Team Profile</title>
+            <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+            <link rel="stylesheet" href="../dist/style.css">
+        </head>
+        <body>
+            <header>
+                <nav class="navbar">Dream Team Profile</nav>
+            </header>
+            <main>
+                <div class="container">
+                    <div class="row justify-content-center" id="team-cards">
+                        ${teamMembers}
+                    </div>
+                </div>
+            </main>
+        </body>
+    </html>
+    `
+}
+
+// export generateHTML to index
+module.exports = generateHTML;
