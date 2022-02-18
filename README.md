@@ -9,9 +9,10 @@ Below is an example of Node Prompts run in the terminal and the example file out
 #### Terminal Questions: 
 
 
-![image](https://user-images.githubusercontent.com/75647359/154723130-e96a04d8-76a1-42ec-9966-af9e26164533.png)
+![image](https://user-images.githubusercontent.com/75647359/154730128-406d064b-584f-4804-b0fa-7380c19e238f.png)
+
 
 #### File Generated:
 
 
-![image](https://user-images.githubusercontent.com/75647359/154722747-3c4819c5-0457-4f13-98ac-1a51ea56d291.png)
+![image](https://user-images.githubusercontent.com/75647359/154730036-e7160624-d161-4abc-a87a-d33c9861475f.png)
