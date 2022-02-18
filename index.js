@@ -10,8 +10,8 @@ const Engineer = require('./lib/Engineer');
 const Intern = require('./lib/Intern');
 const Manager = require('./lib/Manager');
 
-// import generateHTML function 
-const generateHTML = require('./src/generateHTML');
+// import generateHTML functions 
+const generateTeam = require('./src/generateHTML');
 
 // create array to store user input
 const teamMembers = [];
@@ -135,7 +135,7 @@ function userInput() {
             inquirer.prompt([
                 {
                     type: 'confirm',
-                    name: add,
+                    name: 'add',
                     message: 'Would you like to add another team memeber?'
                 }
             ])
@@ -144,12 +144,26 @@ function userInput() {
                     userInput(teamMembers);
                 }
                 else {
-                    generateHTML(teamMembers);
+                    //let teamHTML = generateTeam(teamMembers)
+                    let writeTeam = generateTeam(teamMembers);
+                    writeFile(writeTeam);
                 }
             });
         };
     });
 };
 
+// generate html page using file system 
+const writeFile = function(data){
+    fs.writeFile('./dist/index.html', data, err =>{
+        if (err){
+            console.log(err);
+            return;
+        }
+
+        console.log('The team profile page has been created. Get index.html page in the dist folder.')
+    })
+}
+
 // call userInput funciton to start prompts 
-userInput();
+userInput()

@@ -1,17 +1,17 @@
 // create Manager card 
 const generateManager = function(manager){
     return `
-    <div class="col4">
-        <div class="card">
-            <div class="card-header">
+    <div>
+        <div class="card p-3">
+            <div class="card-header bg-danger bg-opacity-25 text-center">
                 <h3>${manager.name}</h3>
-                <h4>Manager</h4>
+                <h5><i class="material-icons">manage_accounts</i> Manager</h5>
             </div>
 
-            <div class="card-body">
-                <p class="id">ID: ${manager.id}</p>
-                <p class="email">E-mail: <a href="mailto: ${manager.email}">${manager.email}</a></p>
-                <p class="office">Office Number: ${manager.office}</p>
+            <div class="card-body text-center">
+                <p>ID: ${manager.id}</p>
+                <p>E-mail: <a href="mailto: ${manager.email}">${manager.email}</a></p>
+                <p>Office Number: ${manager.office}</p>
             </div>
             
         </div>
@@ -22,17 +22,17 @@ const generateManager = function(manager){
 // create Engineer card 
 const generateEngineer = function (engineer){
     return `
-    <div class="col4">
-        <div class="card">
-            <div class="card-header">
+    <div>
+        <div class="card p-3">
+            <div class="card-header bg-success bg-opacity-25 text-center">
                 <h3>${engineer.name}</h3>
-                <h4>Engineer</h4>
+                <h5><i class="material-icons">construction</i> Engineer</h5>
             </div>
 
-            <div class="card-body">
-                <p class="id">ID: ${engineer.id}</p>
-                <p class="email">E-mail: <a href="mailto: ${engineer.email}">${engineer.email}</a></p>
-                <p class="github">GitHub: <a href="https://github.com/${engineer.github}"></a>${engineer.github}</p>
+            <div class="card-body text-center">
+                <p>ID: ${engineer.id}</p>
+                <p>E-mail: <a href="mailto: ${engineer.email}">${engineer.email}</a></p>
+                <p>GitHub: <a href="https://github.com/${engineer.github}">${engineer.github}</a></p>
             </div>
 
         </div>
@@ -43,17 +43,17 @@ const generateEngineer = function (engineer){
 //create Intern card
 const generateIntern = function(intern){
     return `
-    <div class="col4">
-        <div class="card">
-            <div class="card-header">
+    <div>
+        <div class="card p-3">
+            <div class="card-header bg-warning bg-opacity-25 text-center">
                 <h3>${intern.name}</h3>
-                <h4>Intern</h4>
+                <h5><i class="material-icons">school</i> Intern</h5>
             </div>
 
-            <div class="card-body">
-                <p class="id">ID: ${intern.id}</p>
-                <p class="email">E-mail: <a href="mailto: ${intern.email}">${intern.email}</a></p>
-                <p class="github">School: ${intern.school}</p>
+            <div class="card-body text-center">
+                <p>ID: ${intern.id}</p>
+                <p>E-mail: <a href="mailto: ${intern.email}">${intern.email}</a></p>
+                <p>School: ${intern.school}</p>
             </div>
 
         </div>
@@ -64,16 +64,16 @@ const generateIntern = function(intern){
 // Create Employee card
 const generateEmployee = function(employee){
     return `
-    <div class="col4">
-        <div class="card">
-            <div class="card-header">
+    <div>
+        <div class="card p-3">
+            <div class="card-header bg-primary bg-opacity-25 text-center">
                 <h3>${employee.name}</h3>
-                <h4>Employee</h4>
+                <h5><i class="material-icons">account_circle</i> Employee</h5>
             </div>
 
-            <div class="card-body">
-                <p class="id">ID: ${employee.id}</p>
-                <p class="email">E-mail: <a href="mailto: ${employee.email}">${employee.email}</a></p>
+            <div class="card-body text-center">
+                <p>ID: ${employee.id}</p>
+                <p>E-mail: <a href="mailto: ${employee.email}">${employee.email}</a></p>
             </div>
 
         </div>
@@ -82,7 +82,7 @@ const generateEmployee = function(employee){
 };
 
 // add cards together 
-const generateTeam = function(data){
+generateTeam = (data) => {
 
     // create array to hold employee cards
     employeeCards = [];
@@ -90,7 +90,7 @@ const generateTeam = function(data){
     // loop through response to assign each employee entered to a card
     for (let i in data){
         const employee = data[i];
-        const role = data.employee.role;
+        const role = employee.role;
 
         if (role === 'Manager'){
             const managerCard = generateManager(employee);
@@ -123,7 +123,7 @@ const generateTeam = function(data){
 };
 
 // create html page
-const generateHTML = function (teamMembers){
+const generateHTML = function (teamMembers) {
     return `
     <!DOCTYPE html>
     <html lang="en">
@@ -132,19 +132,15 @@ const generateHTML = function (teamMembers){
             <meta http-equiv="X-UA-Compatible" content="IE=edge">
             <meta name="viewport" content="width=device-width, initial-scale=1.0">
             <title>Dream Team Profile</title>
-            <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
-            <link rel="stylesheet" href="../dist/style.css">
+            <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+            <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         </head>
         <body>
             <header>
-                <nav class="navbar">Dream Team Profile</nav>
+                <h1 class="navbar justify-content-center text-white bg-info bg-opacity-75 mb-4">Dream Team</h1>
             </header>
-            <main>
-                <div class="container">
-                    <div class="row justify-content-center" id="team-cards">
-                        ${teamMembers}
-                    </div>
-                </div>
+            <main class="d-flex justify-content-evenly">
+                ${teamMembers}
             </main>
         </body>
     </html>
@@ -152,4 +148,4 @@ const generateHTML = function (teamMembers){
 }
 
 // export generateHTML to index
-module.exports = generateHTML;
+module.exports = generateTeam
