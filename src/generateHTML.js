@@ -139,7 +139,7 @@ const generateHTML = function (teamMembers) {
             <header>
                 <h1 class="navbar justify-content-center text-white bg-info bg-opacity-75 mb-4">Dream Team</h1>
             </header>
-            <main class="d-flex justify-content-evenly">
+            <main class="d-flex justify-content-evenly flex-wrap">
                 ${teamMembers}
             </main>
         </body>
