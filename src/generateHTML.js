@@ -2,7 +2,7 @@
 const generateManager = function(manager){
     return `
     <div>
-        <div class="card p-3">
+        <div class="card m-3">
             <div class="card-header bg-danger bg-opacity-25 text-center">
                 <h3>${manager.name}</h3>
                 <h5><i class="material-icons">manage_accounts</i> Manager</h5>
@@ -23,7 +23,7 @@ const generateManager = function(manager){
 const generateEngineer = function (engineer){
     return `
     <div>
-        <div class="card p-3">
+        <div class="card m-3">
             <div class="card-header bg-success bg-opacity-25 text-center">
                 <h3>${engineer.name}</h3>
                 <h5><i class="material-icons">construction</i> Engineer</h5>
@@ -44,7 +44,7 @@ const generateEngineer = function (engineer){
 const generateIntern = function(intern){
     return `
     <div>
-        <div class="card p-3">
+        <div class="card m-3">
             <div class="card-header bg-warning bg-opacity-25 text-center">
                 <h3>${intern.name}</h3>
                 <h5><i class="material-icons">school</i> Intern</h5>
@@ -65,7 +65,7 @@ const generateIntern = function(intern){
 const generateEmployee = function(employee){
     return `
     <div>
-        <div class="card p-3">
+        <div class="card m-3">
             <div class="card-header bg-primary bg-opacity-25 text-center">
                 <h3>${employee.name}</h3>
                 <h5><i class="material-icons">account_circle</i> Employee</h5>
